@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Coin
+  - Chest
+  - Loxo
+  - Key
+  - Cloud
   layers:
   - Default
   - TransparentFX
@@ -12,7 +17,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Tree
   - 
   - 
   - 
@@ -41,4 +46,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Tree
+    uniqueID: 1337485399
+    locked: 0
+  - name: Sky
+    uniqueID: 2841935885
     locked: 0

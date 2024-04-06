@@ -20,7 +20,9 @@ public class ScoreManager : MonoBehaviour
 
     void Start() // đếm giờ khi trò chơi bắt đầu
     {
-        remainingTime = 10f; //thời gian còn lại tại thời điểm bắt đầu bằng 30s (thời lượng của trò chơi)
+        remainingTime = 90f; //thời gian còn lại tại thời điểm bắt đầu bằng 30s (thời lượng của trò chơi)
+    gameGem.SetActive(true);
+    gameCharacter.SetActive(true);
         StartCoroutine(CountdownTimer());
     }
  
