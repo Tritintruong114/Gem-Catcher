@@ -25,15 +25,15 @@ public class CharacterMovement : MonoBehaviour
         {
             transform.position += new Vector3(moveHorizontal * speed * Time.deltaTime, 0f, 0f);
         }
-        jump = Input.GetKeyDown(KeyCode.Space); // Jump input on Space key press
-        if (jump && isGrounded && controlEnabled)
-        {
-            // GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            transform.position += new Vector3(moveHorizontal * speed * Time.deltaTime, 0f, 0f);
-            jumpCount++;
-            isGrounded = false; // Set to false to prevent double jumps
-            // animator.SetTrigger("Jump"); // Trigger jump animation (if applicable)
-        }
+        // jump = Input.GetKeyDown(KeyCode.Space); // Jump input on Space key press
+        // if (jump && isGrounded && controlEnabled)
+        // {
+        //     // GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        //     transform.position += new Vector3(moveHorizontal * speed * Time.deltaTime, 0f, 0f);
+        //     jumpCount++;
+        //     isGrounded = false; // Set to false to prevent double jumps
+        //     // animator.SetTrigger("Jump"); // Trigger jump animation (if applicable)
+        // }
 
     }
 }

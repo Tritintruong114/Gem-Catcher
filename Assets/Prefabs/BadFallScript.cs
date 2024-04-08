@@ -20,7 +20,7 @@ public class BadFallScript : MonoBehaviour
             SpawnBad(); // Gọi hàm sinh viên ngọc.
             timer = 0; // Đặt lại biến đếm thời gian.
         }
-    } 
+    }
 
     void SpawnBad()
     {
