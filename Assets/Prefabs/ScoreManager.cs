@@ -11,7 +11,7 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI scoreText; 
     public GameObject gameOverPanel; 
     public GameObject gameCharacter; 
-    public GameObject gameGem; 
+    public GameObject gameCoin; 
     public TextMeshProUGUI gameOverText;
     public static void AddScore(int amount)
     {
@@ -20,20 +20,20 @@ public class ScoreManager : MonoBehaviour
 
     void Start() // đếm giờ khi trò chơi bắt đầu
     {
-        remainingTime = 90f; //thời gian còn lại tại thời điểm bắt đầu bằng 30s (thời lượng của trò chơi)
-    gameGem.SetActive(true);
+    remainingTime = 90f; //thời gian còn lại tại thời điểm bắt đầu bằng 30s (thời lượng của trò chơi)
+    // gameCoin.SetActive(true);
     gameCharacter.SetActive(true);
         StartCoroutine(CountdownTimer());
     }
  
     void Update() 
     {
-        scoreText.text = "Score: " + score + " | Time: " + Mathf.CeilToInt(remainingTime); //Mathf.CeilToInt(remainingTime) làm tròn số nguyên dương
+        scoreText.text = "Collect 9 Coins - " + score ; //Mathf.CeilToInt(remainingTime) làm tròn số nguyên dương
     }
 
     private IEnumerator CountdownTimer()
     {
-        while (remainingTime > 0)
+        while (remainingTime > 0 && score < 10)
         {
             yield return new WaitForSeconds(1f);
             remainingTime--; 
@@ -46,8 +46,7 @@ public class ScoreManager : MonoBehaviour
     private void GameOver()
     {	
     gameCharacter.SetActive(false);
-    gameGem.SetActive(false);
-    gameOverText.text = "Game Over!\nScore: " + score; //gán text vào text
+    gameOverText.text = "Finally, you're rich !!"; //gán text vào text
     gameOverPanel.SetActive(true); //hiển thị panel
     }
 

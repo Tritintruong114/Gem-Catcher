@@ -2,38 +2,41 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-       public float speed = 5.0f;
+    private Rigidbody2D rb; // Reference to the player's rigid body
+    public float jump = 15.0f;
+    public float speed = 5.0f;
     public float jumpForce = 5.0f; // Adjustable jump force
     private Animator animator;
     public bool controlEnabled = true;
-    bool isGrounded = true; // Track grounded state
-    bool jump;
+    bool grounded;
 
 
     void Start()
     {
         animator = GetComponent<Animator>(); //bắt đầu animation khép mở chân
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveHorizontal = Input.GetAxisRaw("Horizontal");
         bool isMoving = moveHorizontal != 0; // khai báo biến isMoving
         animator.SetBool("isMoving", isMoving);
-
-        if (isMoving) // nếu nhân vật đang di chuyển
+        rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
+    
+        if (Input.GetKeyDown(KeyCode.Space)) 
         {
-            transform.position += new Vector3(moveHorizontal * speed * Time.deltaTime, 0f, 0f);
+            rb.AddForce(new Vector2(rb.velocity.x, 15 * 10));
         }
-        // jump = Input.GetKeyDown(KeyCode.Space); // Jump input on Space key press
-        // if (jump && isGrounded && controlEnabled)
-        // {
-        //     // GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        //     transform.position += new Vector3(moveHorizontal * speed * Time.deltaTime, 0f, 0f);
-        //     jumpCount++;
-        //     isGrounded = false; // Set to false to prevent double jumps
-        //     // animator.SetTrigger("Jump"); // Trigger jump animation (if applicable)
-        // }
 
     }
-}
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            grounded = true;
+        }
+    }
+    }

@@ -8,7 +8,7 @@ public class BadFallScript : MonoBehaviour
     // Biến đếm thời gian kể từ lần sinh viên ngọc cuối cùng.
     private float timer; 
     // Khoảng thời gian (tính bằng giây) giữa mỗi lần sinh viên ngọc mới.
-    private float spawnInterval = 6f; //tần suất spawn: 3 giây / 1 gem
+    private float spawnInterval = 2f; //tần suất spawn: 3 giây / 1 gem
 
     void Update()
     {

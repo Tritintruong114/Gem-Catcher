@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class GemMover : MonoBehaviour
+public class CoinMover : MonoBehaviour
 {
     public float speed = 10f; 
-  
+
     void Update()
     {
         transform.Translate(Vector3.down * speed * Time.deltaTime); //tạo chuyển động theo phương thẳng đứng hướng xuống với tốc độ trên theo thời gian
@@ -15,10 +15,11 @@ public class GemMover : MonoBehaviour
       // nếu, phương thức so sánh gameobject tag của other với nhãn "Player" là đúng
     { // thì
       Destroy(gameObject);
-      ScoreManager.AddScore(-1);
-      AudioSource audioSource = other.GetComponent<AudioSource>();
+      ScoreManager.AddScore(1);
+      AudioSource audioSource = GetComponent<AudioSource>();
       audioSource.Play();
     }
+
     if (other.gameObject.CompareTag("Ground")) // còn không thì, nếu là mặt đất,
     { // thì
       Destroy(gameObject);
