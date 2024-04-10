@@ -33,7 +33,7 @@ public class ScoreManager : MonoBehaviour
 
     private IEnumerator CountdownTimer()
     {
-        while (remainingTime > 0 && score < 10)
+        while (remainingTime > 0 && score < 9)
         {
             yield return new WaitForSeconds(1f);
             remainingTime--; 
